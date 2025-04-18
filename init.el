@@ -1,11 +1,10 @@
 ;; Minimal Emacs 30 setup for Rust and LSP
-;; Copy this to ~/.emacs.d/init.el
 
 (require 'package)
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
         ("gnu" . "https://elpa.gnu.org/packages/")))
-(setq package-check-signature nil) ;; TEMP fix for GPG errors
+(setq package-check-signature 'allow-unsigned)
 (package-initialize)
 
 (unless package-archive-contents
@@ -87,7 +86,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(cargo cider company company-org-block ess flycheck flycheck-rust
+	   hydra lsp-mode org-modern projectile rainbow-delimiters
+	   rust-mode use-package which-key-posframe)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
